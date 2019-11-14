@@ -1,0 +1,17 @@
+---
+# tasks file for pihole
+#        _ _           _
+#  _ __ (_) |__   ___ | | ___
+# | '_ \| | '_ \ / _ \| |/ _ \
+# | |_) | | | | | (_) | |  __/
+# | .__/|_|_| |_|\___/|_|\___|
+# |_|
+
+- name: pihole | Copy dnsmasq config for cbnet
+  template: src=templates/02-localnet.conf.j2 dest=/etc/dnsmasq.d/02-localnet.conf force=yes
+- name: pihole | Copy updated dns file
+  template: src=templates/localnet.list.j2 dest=/etc/pihole/localnet.list force=yes
+- name: pihole | Restart pihole-FTL
+  service:
+    name: pihole-FTL
+    state: restarted

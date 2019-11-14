@@ -1,0 +1,11 @@
+- name: Run the common role against some hosts
+  hosts:
+    - pihole
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: PIHOLE | Run the role
+      include_role:
+        name: pihole
+      tags:
+       - install

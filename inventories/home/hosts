@@ -1,0 +1,5 @@
+[pihole]
+# Example entry for ssh-key auth
+pihole.lol	ansible_ssh_host=10.0.1.103	ansible_connection=ssh	ansible_user=root	ansible_private_key_file="~/.ssh/lab"
+# Password based auth 
+#raspberrypi     ansible_ssh_host=10.0.1.218     ansible_connection=ssh  ansible_user=pi       ansible_ssh_pass="raspberry" ansible_ssh_common_args='-o StrictHostKeyChecking=no'
